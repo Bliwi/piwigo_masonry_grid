@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Masonry Grid
-Version: 1
+Version: auto
 Description: Pinterest style masonry grid on piwigo.
-Plugin URI: placeholder
+Plugin URI: auto
 Author: Bliwi
 Author URI: https://bliwi.uk
 Has Settings: true
@@ -21,5 +21,18 @@ if (basename(dirname(__FILE__)) != 'piwigo_masonry_grid')
   return;
 }
 
-define('USER_COLLEC_PATH',   PHPWG_PLUGINS_PATH . 'piwigo_masonry_grid/');
-define('USER_COLLEC_ADMIN',  get_root_url() . 'admin.php?page=plugin-piwigo_masonry_grid');
+define('MASONRY',   PHPWG_PLUGINS_PATH . 'piwigo_masonry_grid/');
+
+add_event_handler('loc_begin_index_thumbnails', 'masonry_replace_template');
+
+function masonry_replace_template()
+{
+    global $template;
+
+    $template->set_prefilter('index_thumbnails', 'masonry_prefilter');
+}
+
+function masonry_prefilter($content)
+{
+    return file_get_contents(MASONRY . 'template/masonry.tpl');
+}

@@ -1,0 +1,34 @@
+.masonry-gallery {
+    width: 100%;
+}
+@supports (grid-template-rows: masonry) {
+  .masonry-gallery {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-rows: masonry;
+  }
+}
+
+/* Fallback: CSS columns (no equal-height rows) */
+@supports not (grid-template-rows: masonry) {
+  .masonry-gallery {
+    column-width: 250px;
+    column-gap: 16px;
+  }
+
+  .masonry-thumb {
+    break-inside: avoid;
+    margin-bottom: 16px;
+  }
+}
+
+.masonry-thumb {
+    text-align: center;
+    max-height: 100vh;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #111;
+    min-height: 10vh;
+    position: relative;
+}
