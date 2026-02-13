@@ -6,7 +6,7 @@ Description: Pinterest style masonry grid on piwigo.
 Plugin URI: auto
 Author: Bliwi
 Author URI: https://bliwi.uk
-Has Settings: true
+Has Settings: false
 */
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
