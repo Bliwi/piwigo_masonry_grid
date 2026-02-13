@@ -32,3 +32,8 @@
     min-height: 10vh;
     position: relative;
 }
+.masonry-thumb img {
+    width: 100%;
+    height: auto;
+    max-height: 1000px;
+}
