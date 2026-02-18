@@ -1,12 +1,12 @@
 <?php
-/*
+/* 
 Plugin Name: Masonry Grid
 Version: auto
 Description: Pinterest style masonry grid on piwigo.
 Plugin URI: auto
 Author: Bliwi
 Author URI: https://bliwi.uk
-Has Settings: false
+Has Settings: true
 */
 defined('PHPWG_ROOT_PATH') or die('Hacking attempt!');
 
@@ -23,7 +23,27 @@ if (basename(dirname(__FILE__)) != 'piwigo_masonry_grid')
 
 define('MASONRY',   PHPWG_PLUGINS_PATH . 'piwigo_masonry_grid/');
 
+global $conf;
+if (!isset($conf['masonry_grid'])) {
+  include(dirname(__FILE__) . '/config_default.inc.php');
+  conf_update_param('masonry_grid', $config_default);
+  load_conf_from_db();
+}
+// Handle both serialized-string and array forms depending on Piwigo version
+if (isset($conf['masonry_grid'])) {
+  if (is_string($conf['masonry_grid'])) {
+    $conf['masonry_grid'] = @unserialize($conf['masonry_grid']);
+  }
+  if (!is_array($conf['masonry_grid'])) {
+    $conf['masonry_grid'] = array();
+  }
+}
+
+add_event_handler('get_admin_plugin_menu_links', 'masonry_admin_menu');
+add_event_handler('init', 'masonry_init');
+
 add_event_handler('loc_begin_index_thumbnails', 'masonry_replace_template');
+add_event_handler('loc_end_index_thumbnails', 'masonry_assign_params', 50, 2);
 
 function masonry_replace_template()
 {
@@ -35,4 +55,38 @@ function masonry_replace_template()
 function masonry_prefilter($content)
 {
     return file_get_contents(MASONRY . 'template/masonry.tpl');
+}
+
+function masonry_admin_menu($menu)
+{
+  $menu[] = array(
+    'NAME' => 'Masonry Grid',
+    'URL'  => get_root_url() . 'admin.php?page=plugin-' . basename(dirname(__FILE__)),
+  );
+  return $menu;
+}
+
+function masonry_init()
+{
+  global $conf, $user, $page;
+  $params = $conf['masonry_grid'];
+  if (isset($params['nb_image_page']) && is_numeric($params['nb_image_page'])) {
+    $user['nb_image_page'] = $params['nb_image_page'];
+    $page['nb_image_page'] = $params['nb_image_page'];
+  }
+}
+
+function masonry_assign_params($tpl_vars, $pictures)
+{
+  global $template, $conf;
+  $params = $conf['masonry_grid'];
+  $width = isset($params['width']) ? intval($params['width']) : 220;
+  if ($width <= 0) {
+    $width = 220;
+  }
+  $gap = isset($params['gap']) ? intval($params['gap']) : 16;
+  $template->assign('derivative_params', ImageStdParams::get_custom($width, 9999));
+  $template->assign('MASONRY_WIDTH', $width);
+  $template->assign('MASONRY_GAP', $gap);
+  return $tpl_vars;
 }
