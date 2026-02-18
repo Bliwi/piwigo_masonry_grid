@@ -8,6 +8,7 @@
   .masonry-gallery { column-width: {$MASONRY_WIDTH|escape:'html'}px; column-gap: {$MASONRY_GAP|escape:'html'}px; }
   .masonry-thumb { margin-bottom: {$MASONRY_GAP|escape:'html'}px; }
 }
+.masonry-thumb { border-radius: {$MASONRY_RADIUS|escape:'html'}px; }
 </style>
     <div class="masonry-gallery">
             {foreach from=$thumbnails item=thumbnail}

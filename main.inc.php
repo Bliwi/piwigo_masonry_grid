@@ -85,8 +85,13 @@ function masonry_assign_params($tpl_vars, $pictures)
     $width = 220;
   }
   $gap = isset($params['gap']) ? intval($params['gap']) : 16;
+  $radius = isset($params['corner_radius']) ? intval($params['corner_radius']) : 25;
+  if ($radius < 0) {
+    $radius = 0;
+  }
   $template->assign('derivative_params', ImageStdParams::get_custom($width, 9999));
   $template->assign('MASONRY_WIDTH', $width);
   $template->assign('MASONRY_GAP', $gap);
+  $template->assign('MASONRY_RADIUS', $radius);
   return $tpl_vars;
 }

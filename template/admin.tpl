@@ -15,6 +15,10 @@
       <input type="number" min="0" id="gap" name="gap" value="{$MASONRY_GAP|escape:'html'}">
     </p>
     <p>
+      <label for="corner_radius">Thumbnail corner radius (px)</label>
+      <input type="number" min="0" id="corner_radius" name="corner_radius" value="{$MASONRY_RADIUS|escape:'html'}">
+    </p>
+    <p>
       <label for="nb_image_page">Photos per page</label>
       <input type="number" min="1" id="nb_image_page" name="nb_image_page" value="{$MASONRY_NB_IMAGE|escape:'html'}">
     </p>

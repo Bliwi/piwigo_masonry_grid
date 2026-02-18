@@ -28,6 +28,7 @@ if (isset($_POST['submit'])) {
   $width = isset($_POST['width']) ? intval($_POST['width']) : 220;
   $gap = isset($_POST['gap']) ? intval($_POST['gap']) : 16;
   $nb = isset($_POST['nb_image_page']) ? intval($_POST['nb_image_page']) : 80;
+  $radius = isset($_POST['corner_radius']) ? intval($_POST['corner_radius']) : 25;
 
   if ($width <= 0) {
     $page['errors'][] = 'Thumbnail width must be a positive integer';
@@ -38,12 +39,16 @@ if (isset($_POST['submit'])) {
   if ($nb <= 0) {
     $page['errors'][] = 'Number of photos per page must be a positive integer';
   }
+  if ($radius < 0) {
+    $page['errors'][] = 'Corner radius must be zero or a positive integer';
+  }
 
   if (empty($page['errors'])) {
     $params = array(
       'width' => $width,
       'gap' => $gap,
-      'nb_image_page' => $nb
+      'nb_image_page' => $nb,
+      'corner_radius' => $radius
     );
     conf_update_param('masonry_grid', $params);
     $page['infos'][] = 'Settings saved';
@@ -54,6 +59,7 @@ $template->assign(array(
   'MASONRY_WIDTH'        => isset($params['width']) ? $params['width'] : 220,
   'MASONRY_GAP'          => isset($params['gap']) ? $params['gap'] : 16,
   'MASONRY_NB_IMAGE'     => isset($params['nb_image_page']) ? $params['nb_image_page'] : 80,
+  'MASONRY_RADIUS'       => isset($params['corner_radius']) ? $params['corner_radius'] : 25,
   'PWG_TOKEN'            => get_pwg_token(),
 ));
 
