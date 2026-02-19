@@ -70,6 +70,10 @@ function masonry_init()
 {
   global $conf, $user, $page;
   $params = $conf['masonry_grid'];
+
+  load_language('plugin.lang', MASONRY);
+  load_language('lang', PHPWG_ROOT_PATH.PWG_LOCAL_DIR, array('no_fallback'=>true, 'local'=>true) );
+
   if (isset($params['nb_image_page']) && is_numeric($params['nb_image_page'])) {
     $user['nb_image_page'] = $params['nb_image_page'];
     $page['nb_image_page'] = $params['nb_image_page'];

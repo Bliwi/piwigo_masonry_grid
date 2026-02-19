@@ -31,16 +31,16 @@ if (isset($_POST['submit'])) {
   $radius = isset($_POST['corner_radius']) ? intval($_POST['corner_radius']) : 25;
 
   if ($width <= 0) {
-    $page['errors'][] = 'Thumbnail width must be a positive integer';
+    $page['errors'][] = l10n('Thumbnail width must be a positive integer');
   }
   if ($gap < 0) {
-    $page['errors'][] = 'Gap between thumbnails must be zero or a positive integer';
+    $page['errors'][] = l10n('Gap between thumbnails must be zero or a positive integer');
   }
   if ($nb <= 0) {
-    $page['errors'][] = 'Number of photos per page must be a positive integer';
+    $page['errors'][] = l10n('Number of photos per page must be a positive integer');
   }
   if ($radius < 0) {
-    $page['errors'][] = 'Corner radius must be zero or a positive integer';
+    $page['errors'][] = l10n('Corner radius must be zero or a positive integer');
   }
 
   if (empty($page['errors'])) {
@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
       'corner_radius' => $radius
     );
     conf_update_param('masonry_grid', $params);
-    $page['infos'][] = 'Settings saved';
+    $page['infos'][] = l10n('Settings saved');
   }
 }
 
