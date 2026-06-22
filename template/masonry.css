@@ -1,15 +1,16 @@
-/* Layout (grid for row order / multi-column for column order) is emitted inline by
-   masonry.tpl, parameterised by the plugin settings. This file only styles the items. */
+/* Layout (flex columns for row order / multi-column for column order) is emitted inline
+   by masonry.tpl, parameterised by the plugin settings. This file only styles the items. */
 .masonry-gallery {
     width: 100%;
 }
 
+/* No min-height: the thumb must wrap the image exactly, otherwise a viewport-relative
+   floor (e.g. 10vh) grows past the image when zoomed out and leaves a black band below it. */
 .masonry-thumb {
     text-align: center;
     max-height: 100vh;
     overflow: hidden;
     background: #111;
-    min-height: 10vh;
     position: relative;
 }
 .masonry-thumb img {
