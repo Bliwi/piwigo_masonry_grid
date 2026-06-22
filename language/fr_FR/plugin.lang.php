@@ -18,3 +18,6 @@ $lang['Number of photos per page must be a positive integer'] = 'Le nombre de ph
 $lang['Gap between thumbnails (px)'] = 'Espace entre les miniatures (px)';
 $lang['Configure thumbnail width, gap and images per page.'] = 'Configurer la taille, l\'espace et le nombre de miniatures par page';
 $lang['Corner radius must be zero or a positive integer'] = 'Le rayon du coin doit être supérieur ou égal à zéro';
+$lang['Reading order'] = 'Sens de lecture';
+$lang['Rows (left to right, then top to bottom)'] = 'Par rangées (gauche à droite, puis haut en bas)';
+$lang['Columns (top to bottom, then left to right)'] = 'Par colonnes (haut en bas, puis gauche à droite)';
