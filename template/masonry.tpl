@@ -11,13 +11,15 @@
 .masonry-thumb { border-radius: {$MASONRY_RADIUS|escape:'html'}px; }
 </style>
     <div class="masonry-gallery">
+            {assign var=mq_idx value=0+$START_ID}
             {foreach from=$thumbnails item=thumbnail}
                 <div class="masonry-thumb">
-                    <a href="{$thumbnail.URL}">
+                    <a href="{$thumbnail.URL}" data-index="{$mq_idx}">
                         {assign var=derivative value=$pwg->derivative($derivative_params, $thumbnail.src_image)}
                         <img draggable="false" src="{$derivative->get_url()}" alt="{$thumbnail.TN_ALT}" title="{$thumbnail.TN_TITLE}">
                     </a>
                 </div>
+            {assign var=mq_idx value=$mq_idx+1}
             {/foreach}
     </div>
 {/if}
