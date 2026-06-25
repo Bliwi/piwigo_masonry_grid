@@ -15,14 +15,17 @@
 .masonry-thumb { border-radius: {$MASONRY_RADIUS|escape:'html'}px; }
 </style>
     <div class="masonry-gallery" data-colwidth="{$MASONRY_WIDTH|escape:'html'}" data-gap="{$MASONRY_GAP|escape:'html'}">
+            {assign var=mq_idx value=0+$START_ID}
             {foreach from=$thumbnails item=thumbnail}
                 {assign var=derivative value=$pwg->derivative($derivative_params, $thumbnail.src_image)}
                 {assign var=dsz value=$derivative->get_size()}
                 <div class="masonry-thumb" data-ar="{if $dsz[0] > 0}{$dsz[1]/$dsz[0]}{else}1{/if}">
                     <a href="{$thumbnail.URL}">
+                        {assign var=derivative value=$pwg->derivative($derivative_params, $thumbnail.src_image)}
                         <img draggable="false" src="{$derivative->get_url()}" alt="{$thumbnail.TN_ALT}" title="{$thumbnail.TN_TITLE}">
                     </a>
                 </div>
+            {assign var=mq_idx value=$mq_idx+1}
             {/foreach}
     </div>
 {if !$mq_cols}
