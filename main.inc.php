@@ -93,9 +93,12 @@ function masonry_assign_params($tpl_vars, $pictures)
   if ($radius < 0) {
     $radius = 0;
   }
+  // reading order: 'row' = left-to-right then top-to-bottom, 'column' = top-to-bottom then left-to-right
+  $order = (isset($params['order']) && $params['order'] === 'column') ? 'column' : 'row';
   $template->assign('derivative_params', ImageStdParams::get_custom($width, 9999));
   $template->assign('MASONRY_WIDTH', $width);
   $template->assign('MASONRY_GAP', $gap);
   $template->assign('MASONRY_RADIUS', $radius);
+  $template->assign('MASONRY_ORDER', $order);
   return $tpl_vars;
 }

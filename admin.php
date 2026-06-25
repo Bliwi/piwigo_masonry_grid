@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
   $gap = isset($_POST['gap']) ? intval($_POST['gap']) : 16;
   $nb = isset($_POST['nb_image_page']) ? intval($_POST['nb_image_page']) : 80;
   $radius = isset($_POST['corner_radius']) ? intval($_POST['corner_radius']) : 25;
+  $order = (isset($_POST['order']) && $_POST['order'] === 'column') ? 'column' : 'row';
 
   if ($width <= 0) {
     $page['errors'][] = l10n('Thumbnail width must be a positive integer');
@@ -48,7 +49,8 @@ if (isset($_POST['submit'])) {
       'width' => $width,
       'gap' => $gap,
       'nb_image_page' => $nb,
-      'corner_radius' => $radius
+      'corner_radius' => $radius,
+      'order' => $order
     );
     conf_update_param('masonry_grid', $params);
     $page['infos'][] = l10n('Settings saved');
@@ -60,6 +62,7 @@ $template->assign(array(
   'MASONRY_GAP'          => isset($params['gap']) ? $params['gap'] : 16,
   'MASONRY_NB_IMAGE'     => isset($params['nb_image_page']) ? $params['nb_image_page'] : 80,
   'MASONRY_RADIUS'       => isset($params['corner_radius']) ? $params['corner_radius'] : 25,
+  'MASONRY_ORDER'        => (isset($params['order']) && $params['order'] === 'column') ? 'column' : 'row',
   'PWG_TOKEN'            => get_pwg_token(),
 ));
 

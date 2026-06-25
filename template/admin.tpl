@@ -22,6 +22,13 @@
       <label for="nb_image_page">{'Photos per page'|translate}</label>
       <input type="number" min="1" id="nb_image_page" name="nb_image_page" value="{$MASONRY_NB_IMAGE|escape:'html'}">
     </p>
+    <p>
+      <label for="order">{'Reading order'|translate}</label>
+      <select id="order" name="order">
+        <option value="row"{if $MASONRY_ORDER != 'column'} selected="selected"{/if}>{'Rows (left to right, then top to bottom)'|translate}</option>
+        <option value="column"{if $MASONRY_ORDER == 'column'} selected="selected"{/if}>{'Columns (top to bottom, then left to right)'|translate}</option>
+      </select>
+    </p>
   </fieldset>
   <p class="formButtons">
     <input type="hidden" name="pwg_token" value="{$PWG_TOKEN}">
