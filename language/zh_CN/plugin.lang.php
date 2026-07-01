@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = '缩略图圆角半径（像素）';
 $lang['Thumbnail width (px)'] = '缩略图宽度（像素）';
 $lang['Thumbnail width must be a positive integer'] = '缩略图宽度必须为正整数';
 $lang['Thumbnails'] = '缩略图';
+$lang['Columns (top to bottom, then left to right)'] = '列优先（先自上而下，再自左向右）';
+$lang['Reading order'] = '阅读顺序';
+$lang['Rows (left to right, then top to bottom)'] = '行优先（先自左向右，再自上而下）';
