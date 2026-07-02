@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = 'רדיוס פינת תמונה ממוז
 $lang['Thumbnail width (px)'] = 'רוחב תמונה ממוזערת (px)';
 $lang['Thumbnail width must be a positive integer'] = 'רוחב תמונה ממוזערת חייב להיות מספר שלם חיובי';
 $lang['Thumbnails'] = 'תמונות ממוזערות';
+$lang['Columns (top to bottom, then left to right)'] = 'עמודות (מלמעלה למטה, ואז משמאל לימין)';
+$lang['Reading order'] = 'סדר קריאה';
+$lang['Rows (left to right, then top to bottom)'] = 'שורות (משמאל לימין, ואז מלמעלה למטה)';
