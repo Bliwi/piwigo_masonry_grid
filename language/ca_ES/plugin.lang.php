@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = 'Radi de la cantonada de la miniatura (p
 $lang['Thumbnail width (px)'] = 'Amplada de la miniatura (px)';
 $lang['Thumbnail width must be a positive integer'] = 'L\'amplada de la miniatura ha de ser un número enter positiu';
 $lang['Thumbnails'] = 'Miniatures';
+$lang['Columns (top to bottom, then left to right)'] = 'Columnes (de dalt a baix i d\'esquerra a dreta)';
+$lang['Reading order'] = 'Ordre de lectura';
+$lang['Rows (left to right, then top to bottom)'] = 'Files (d\'esquerra a dreta i de dalt a baix)';
