@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = 'Hjørneradius for miniatyrbilde (piksle
 $lang['Thumbnail width (px)'] = 'Miniatyrbildebredde (piksler)';
 $lang['Thumbnail width must be a positive integer'] = 'Miniatyrbildebredden må være et positivt heltall';
 $lang['Thumbnails'] = 'Miniatyrbilder';
+$lang['Columns (top to bottom, then left to right)'] = 'Kolonner (topp til bunn, deretter venstre til høyre)';
+$lang['Reading order'] = 'Lese rekkefølge';
+$lang['Rows (left to right, then top to bottom)'] = 'Rader (venstre til høyre, deretter topp til bunn)';
