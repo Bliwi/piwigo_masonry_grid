@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = 'Radio de las esquinas de las miniaturas
 $lang['Thumbnail width (px)'] = 'Ancho de las miniaturas (px)';
 $lang['Thumbnail width must be a positive integer'] = 'El ancho de las miniaturas debe ser un número entero positivo.';
 $lang['Thumbnails'] = 'Miniaturas';
+$lang['Columns (top to bottom, then left to right)'] = 'Columnas (de arriba a abajo y de izquierda a derecha)';
+$lang['Reading order'] = 'Orden de lectura';
+$lang['Rows (left to right, then top to bottom)'] = 'Filas (de izquierda a derecha y de arriba a abajo)';
