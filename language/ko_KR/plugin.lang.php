@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = '썸네일 모서리 반경 (px)';
 $lang['Thumbnail width (px)'] = '썸네일 너비 (px)';
 $lang['Thumbnail width must be a positive integer'] = '썸네일 너비는 양의 정수여야 합니다';
 $lang['Thumbnails'] = '썸네일';
+$lang['Columns (top to bottom, then left to right)'] = '열 (위에서 아래로, 그다음 왼쪽에서 오른쪽으로)';
+$lang['Reading order'] = '읽는 순서';
+$lang['Rows (left to right, then top to bottom)'] = '행 (왼쪽에서 오른쪽으로, 그다음 위에서 아래로)';
