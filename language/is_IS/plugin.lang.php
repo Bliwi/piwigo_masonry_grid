@@ -18,3 +18,6 @@ $lang['Thumbnail corner radius (px)'] = 'Hornradíus smámyndar (px)';
 $lang['Thumbnail width (px)'] = 'Breidd smámyndar (px)';
 $lang['Thumbnail width must be a positive integer'] = 'Breidd smámyndar verður að vera jákvæð heiltala';
 $lang['Thumbnails'] = 'Smámyndir';
+$lang['Columns (top to bottom, then left to right)'] = 'Dálkar (efst til neðst, síðan frá vinstri til hægri)';
+$lang['Reading order'] = 'Lestraröð';
+$lang['Rows (left to right, then top to bottom)'] = 'Raðir (frá vinstri til hægri, síðan efst og neðst)';
