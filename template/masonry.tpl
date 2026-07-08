@@ -20,8 +20,7 @@
                 {assign var=derivative value=$pwg->derivative($derivative_params, $thumbnail.src_image)}
                 {assign var=dsz value=$derivative->get_size()}
                 <div class="masonry-thumb" data-ar="{if $dsz[0] > 0}{$dsz[1]/$dsz[0]}{else}1{/if}">
-                    <a href="{$thumbnail.URL}">
-                        {assign var=derivative value=$pwg->derivative($derivative_params, $thumbnail.src_image)}
+                    <a href="{$thumbnail.URL}" data-index="{$mq_idx}">
                         <img draggable="false" src="{$derivative->get_url()}" alt="{$thumbnail.TN_ALT}" title="{$thumbnail.TN_TITLE}">
                     </a>
                 </div>
